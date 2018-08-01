@@ -33,6 +33,8 @@
 #define SYS_process_vm_readv 347
 #elif defined(__x86_64)
 #define SYS_process_vm_readv 310
+#elif defined(__arm__) || defined(__aarch64__)
+#define SYS_process_vm_readv 376
 #else
 #error SYS_process_vm_readv is undefined
 #endif
