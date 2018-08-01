@@ -537,9 +537,10 @@ static int find_proc_info(unw_addr_space_t as, unw_word_t ip,
 
     memset(&di, 0, sizeof(di));
 
-    if (!find_eh_frame_hdr(region->fd, elf_image, elf_length,
-                &table_data, &segbase, &fde_count)) {
-
+    if (find_eh_frame_hdr(region->fd, elf_image, elf_length,
+                &table_data, &segbase, &fde_count) != 0) {
+        rc = -UNW_ENOINFO;
+    } else {
         di.format = UNW_INFO_FORMAT_REMOTE_TABLE;
         di.start_ip = (unw_word_t)region->start;
         di.end_ip = (unw_word_t)region->start + region->length;
