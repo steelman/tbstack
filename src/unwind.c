@@ -217,9 +217,6 @@ static int find_eh_frame_hdr(int fd, char *image, uint64_t size,
         }
     }
 
-    if (!offset)
-        goto elf_section_offset_end;
-
 elf_section_offset_end:
     elf_end(elf);
     return (offset ? 0 : -1);
