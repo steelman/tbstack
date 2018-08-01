@@ -30,7 +30,7 @@
 
 #ifndef SYS_process_vm_readv
 #if defined(__i386)
-#define SYS_process_vm_readv 365
+#define SYS_process_vm_readv 347
 #elif defined(__x86_64)
 #define SYS_process_vm_readv 310
 #else
