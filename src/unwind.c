@@ -296,6 +296,8 @@ static char *proc_name(int fd, char *image, size_t size, uint64_t load,
     all.s_cap = 64;
     all.s_size = 0;
     all.s_data = malloc(all.s_cap * sizeof(GElf_Sym));
+    if (all.s_data == NULL)
+        goto proc_name_end;
 
     if (elf_getphdrnum (elf, &pnum))
         goto proc_name_end;
